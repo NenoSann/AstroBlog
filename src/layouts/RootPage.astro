@@ -1,0 +1,22 @@
+---
+interface Props {
+  title: String;
+}
+
+// get the title from props
+const { title } = Astro.props;
+---
+
+<!doctype html>
+<html lang="zh-Hans">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>{title}</title>
+  </head>
+  <!-- bg-gradient-to-br from-cyan-500 to-blue-500 min-h-screen -->
+  <body class="bg-fixed bg-gradient-to-t from-[#a8edea] via-transparent to-[#fed6e3] bg-contain bg-center px-6 ">
+        <slot />
+  </body>
+</html>

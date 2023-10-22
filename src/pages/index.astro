@@ -1,19 +1,22 @@
 ---
-import Layout from "../layouts/Layout.astro";
+import RootPage from "../layouts/RootPage.astro";
+import Info from "../components/Info.astro";
 ---
 
-<Layout title="Welcome to Astro.">
-  <main>
-    <h1>Test tailwind css</h1>
-  </main>
-</Layout>
+<RootPage title="Welcome to Astro.">
+  <div class=" pt-4 px-10 h-screen">
+    <div class=" grid grid-cols-[auto_20%] grid-rows-8 gap-x-4 gap-y-4 h-full">
+      <div class=" shadow-md bg-[rgba(255,255,255,0.4)] rounded-lg col-span-2 row-span-1 ">Header</div>
+      <div class=" shadow-md bg-[rgba(255,255,255,0.4)] rounded-lg col-span-1 row-span-6 ">Content</div>
+      <!-- <div class=" shadow-md bg-[rgba(255,255,255,0.4)] rounded-lg col-span-1 row-span-6 ">Info</div> -->
+      <Info ></Info>
+    </div>
+  </div>
+</RootPage>
 
 <style>
   main {
     margin: auto;
-    padding: 1rem;
-    width: 800px;
-    max-width: calc(100% - 2rem);
     color: white;
     font-size: 20px;
     line-height: 1.6;

@@ -1,0 +1,25 @@
+---
+import { Image } from "astro:assets";
+import Avatar from "./Avatar.astro";
+import SocialIcon from "./SocialIcon.vue";
+import '@fontsource-variable/lexend';
+const IconSets = [{src:'src/assets/bilibili.svg',ref:'https://space.bilibili.com/19883061'},{src:'src/assets/github-mark.svg',ref:'https://github.com/NenoSann'},{src:'src/assets/qq.svg',ref:''},{src:'src/assets/icon-kfckfc.svg',ref:'https://twitter.com/FNoobuuu'}]
+import Miku from '../assets/NewYearMiku-2K.png';
+---
+<div class="flex flex-col items-center gap-4 shadow-sm  bg-[rgba(255,255,255,0.4)] rounded-lg col-span-1 row-span-6 overflow-hidden h-fit pb-5">
+    <!-- weired method to implement style props...... -->
+    <div class=" relative">
+        <Image src={Miku} alt="Hatsune Miku 2022 NewYear image" class=" relative"></Image>
+        <Avatar avatar_url="src/assets/avatar.png"  component_class="absolute translate-y-1/2 bottom-0 w-1/5 left-1 shadow-md rounded-full overflow-hidden hover:shadow-2xl transition-shadow "/>
+    </div>
+    
+    <p class=" text-3xl antialiased font-bold bg-clip-text text-transparent bg-gradient-to-r from-pink-500 to-violet-500">[NenoSan]</p>
+    <SocialIcon IconArray={IconSets} />
+</div>
+
+<style>
+    p {
+        font-family: 'Lexend Variable', sans-serif;
+    }
+</style>
+

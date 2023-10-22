@@ -1,0 +1,15 @@
+---
+interface props {
+    avatar_url:URL,
+    tailwind_width:String,
+    tailwind_shadow:String,
+    component_class:String
+}
+
+const {avatar_url,component_class} = Astro.props;
+---
+<div class={component_class}>
+    <section class="flex justify-cente">
+        <img src={avatar_url} alt="My avatar">
+    </section>
+<div>
