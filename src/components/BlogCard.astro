@@ -1,0 +1,12 @@
+---
+interface Props {
+    image_url?:string,
+}
+const {image_url} = Astro.props
+import { Image } from "astro:assets";
+import MainPage from '../assets/blog1.png';
+---
+
+<div class="flex w-1/3 h-fit">
+    <img src={image_url} alt="">
+</div>
