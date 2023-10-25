@@ -2,15 +2,18 @@
 import RootPage from "../layouts/RootPage.astro";
 import Info from "../components/Info.astro";
 import BlogList from "../layouts/BlogList.vue";
+import GithubGraph from "../components/GithubGraphWrapper.astro";
 ---
 
 <RootPage title="Welcome to Astro.">
   <div class=" mt-4 mx-10 min-h-screen max-h-screen">
     <div class=" flex flex-col ">
-      <div class=" shadow-md bg-[rgba(255,255,255,0.4)] rounded-lg h-16 w-[calc(100vw-5rem)] fixed z-10 ">Header</div>
-      <div class=" flex flex-row mt-[calc(4rem+20px)]">
-        <BlogList></BlogList>
-        <Info ></Info>
+      <div class=" shadow-md bg-[rgba(255,255,255,0.4)] rounded-lg h-16 w-[calc(100vw-5rem)] fixed ">Header</div>
+      <div class=" overflow-hidden rounded-lg">
+        <div class=" flex flex-row mt-[calc(4rem+20px)] h-[calc(100vh-4rem-20px)] overflow-auto">
+          <BlogList></BlogList>
+          <Info ></Info>
+        </div>
       </div>
     </div>
   </div>

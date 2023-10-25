@@ -3,8 +3,13 @@ export default {
 	content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
 	theme: {
 		extend: {
-
+			colors: {
+				primary: '#99f6e4',
+				secondary: '#fecdd3'
+			}
 		},
 	},
-	plugins: [],
+	plugins: [
+		require('tailwindcss/nesting'),
+	],
 }
