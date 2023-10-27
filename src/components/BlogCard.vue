@@ -1,7 +1,7 @@
 <template>
     <a :href="href" class=" block w-full">
-        <div class="flex bg-[rgba(255,255,255,0.4)] rounded-md overflow-hidden h-full w-full relative shadow
-                    before:bg-primary-content" id="main">
+        <div class="flex bg-[rgba(255,255,255,0.4)] rounded-md overflow-hidden h-full w-full relative shadow-lg
+                    before:bg-accent" id="main">
             <div>
                 <img :src="image_url" alt="" class=" flex-grow-0 h-full w-full">
             </div>
