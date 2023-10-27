@@ -1,6 +1,6 @@
 ---
 const {frontmatter} = Astro.props;
-
+import NavBar from "../components/NavBar.astro";
 ---
 <!DOCTYPE html>
 <html lang="zh-Hans">
@@ -10,6 +10,7 @@ const {frontmatter} = Astro.props;
     <title>{frontmatter.title}</title>
 </head>
 <body>
+    <NavBar></NavBar>
     <article>
         <slot></slot>
     </article>
@@ -20,10 +21,16 @@ const {frontmatter} = Astro.props;
     body{
        display: flex; 
        flex-direction: column;
-       padding-left: 20%;
-       padding-right: 20%;
+       @apply bg-base-100 dark:bg-neutral;
     }
     article {
-        @apply text-lg text-cyan-500
+        margin-top: 2rem;
+        padding-left: 8vw;
+        padding-right: 8vw;
+        @apply prose prose-neutral lg:prose-lg max-w-none;
+        @apply dark:prose-invert;
+        @apply prose-a:italic;
+        @apply prose-h1:text-center;
+        @apply prose-code:daisy-mockup-code prose-code:bg-transparent;
     }
 </style>

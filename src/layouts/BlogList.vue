@@ -7,16 +7,23 @@
 
 <script setup>
 import BlogCard from '../components/BlogCard.vue';
-const BlogList = [{
-    image_url: 'src/assets/blog1.png',
-    title: '第一篇博客！',
-    href: 'posts/post_1'
-}, { image_url: 'src/assets/blog2.png' }, {
-    image_url: 'src/assets/blog1.png'
-}, { image_url: 'src/assets/blog2.png' }, {
-    image_url: 'src/assets/blog1.png'
-}, { image_url: 'src/assets/blog2.png' }, {
-    image_url: 'src/assets/blog1.png'
-}, { image_url: 'src/assets/blog2.png' },]
+const props = defineProps({
+    BlogList: {
+        type: Array,
+        required: true,
+        default: []
+    }
+})
+// const BlogList = [{
+//     image_url: 'src/assets/blog1.png',
+//     title: '第一篇博客！',
+//     href: 'posts/post_1'
+// }, { image_url: 'src/assets/blog2.png' }, {
+//     image_url: 'src/assets/blog1.png'
+// }, { image_url: 'src/assets/blog2.png' }, {
+//     image_url: 'src/assets/blog1.png'
+// }, { image_url: 'src/assets/blog2.png' }, {
+//     image_url: 'src/assets/blog1.png'
+// }, { image_url: 'src/assets/blog2.png' },]
 
 </script>

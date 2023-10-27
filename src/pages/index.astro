@@ -2,21 +2,31 @@
 import RootPage from "../layouts/RootPage.astro";
 import Info from "../components/Info.astro";
 import BlogList from "../layouts/BlogList.vue";
-import NavbarLayout from "../layouts/NavbarLayout.astro";
 import NavBar from "../components/NavBar.astro";
 
-
+const mdList = await Astro.glob('../pages/posts/*.md');
+// looks like: /posts/VueProjectNote /posts/d2-linux /posts/d5-environment /posts/post_1
+// can be used as blog list props
+// const urlList = mdList.map((mdFile)=>{
+//     return `${mdFile.url} `;
+// })
+const blogList = [];
+mdList.forEach((mdFile)=>{
+   blogList.push({
+      image_url: 'src/assets/blog1.png',
+      title:'First blog',
+      href:mdFile.url
+   })
+})
 ---
 
 <RootPage title="Welcome to Astro.">
-  <div class=" mt-4 mx-10 min-h-screen max-h-screen">
+  <div class=" mt-4 mx-10 min-h-screen max-h-screen w-100vw">
     <div class=" flex flex-col ">
       <div class=" overflow-hidden rounded-lg">
-        <NavbarLayout>
-          <NavBar>
-        </NavbarLayout>
+          <NavBar></NavBar>
         <div class=" flex flex-row mt-[20px] h-[calc(100vh-4rem-20px)] overflow-auto">
-          <BlogList client:load></BlogList>
+          <BlogList BlogList={blogList} client:load></BlogList>
           <Info ></Info>
         </div>
       </div>
