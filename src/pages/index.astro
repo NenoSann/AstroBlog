@@ -16,7 +16,7 @@ import NavBar from "../components/NavBar.astro";
           <NavBar>
         </NavbarLayout>
         <div class=" flex flex-row mt-[20px] h-[calc(100vh-4rem-20px)] overflow-auto">
-          <BlogList></BlogList>
+          <BlogList client:load></BlogList>
           <Info ></Info>
         </div>
       </div>

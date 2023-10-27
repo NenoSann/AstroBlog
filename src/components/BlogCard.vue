@@ -18,15 +18,18 @@ const props = defineProps({
     image_url: String,
     summary: {
         type: String,
-        default: 'Currently have not summary!'
+        default: 'Currently have not summary!',
+        required: true
     },
     title: {
         type: String,
-        default: '没有标题'
+        default: '没有标题',
+        required: true
     },
     href: {
         type: String,
-        default: '/'
+        default: '/',
+        required: true,
     }
 })
 </script>
