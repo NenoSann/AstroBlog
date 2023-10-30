@@ -1,12 +1,14 @@
 ---
 const {frontmatter} = Astro.props;
 import NavBar from "../components/NavBar.astro";
+import '../../public/favicon.ico'
 ---
 <!DOCTYPE html>
 <html lang="zh-Hans">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image" href="../../public/favicon.ico" />
     <title>{frontmatter.title}</title>
 </head>
 <body>

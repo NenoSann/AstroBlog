@@ -3,6 +3,7 @@ interface Props {
   title: String;
 }
 import '../../public/global.css'
+import  '../../public/favicon.ico'
 // get the title from props
 const { title } = Astro.props;
 import { ViewTransitions } from "astro:transitions";
@@ -13,12 +14,12 @@ import { ViewTransitions } from "astro:transitions";
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image" href="../../public/favicon.ico" />
     <title>{title}</title>
     <ViewTransitions></ViewTransitions>
   </head>
   <!-- bg-[radial-gradient(ellipse_at_bottom_right,_var(--tw-gradient-stops))] from-secondary via-accent to-primary -->
-  <body class="bg-fixed dark:bg-neutral dark:bg-none bg-base-100 overflow-hidden">
+  <body class="bg-fixed dark:bg-neutral dark:bg-none bg-base-100">
         <slot />
   </body>
 </html>
