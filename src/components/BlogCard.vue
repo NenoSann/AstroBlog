@@ -7,7 +7,7 @@
             </div>
             <div class="h-full flex flex-col items-center p-4 flex-grow">
                 <h3>{{ title }}</h3>
-                <p class="w-[calc(100%)] text-md text-ellipsis overflow-scroll">{{ summary }}</p>
+                <p class="w-[calc(100%)] text-md text-ellipsis overflow-auto">{{ summary }}</p>
             </div>
         </div>
     </a>

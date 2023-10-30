@@ -20,7 +20,7 @@ const props = defineProps({
 
 <style>
 .blog-list {
-    @apply grid grid-cols-1 grid-rows-4 gap-6 rounded-lg w-full mr-[calc(20rem+20px)] h-[150vh] overflow-scroll;
+    @apply grid grid-cols-1 grid-rows-4 gap-6 rounded-lg w-full mr-[calc(20rem+20px)] h-[150vh] overflow-auto;
     @apply lg:grid-cols-2;
     @apply 2xl:grid-cols-3;
 }

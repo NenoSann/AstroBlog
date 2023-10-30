@@ -12,12 +12,13 @@ import qq from '../assets/qq.svg';
 import bilibili from '../assets/bilibili.svg';
 import twitter from '../assets/icon-kfckfc.svg';
 import github from '../assets/github-mark.svg';
+import avatar from '../assets/avatar.png';
 ---
 <div class="flex flex-col items-center gap-4 shadow-lg  bg-[rgba(255,255,255,0.4)] rounded-lg overflow-hidden max-w-[80rem] h-fit ml-[20px] pb-5
             portrait:m-0 portrait:flex-grow portrait:mb-6">
     <div class=" relative">
         <Image src={Miku} alt="Hatsune Miku 2022 NewYear image" class="relative"></Image>
-        <Avatar avatar_url="src/assets/avatar.png"  component_class=" translate-y-1/2 absolute bottom-0 w-1/5 left-1 shadow-md rounded-full overflow-hidden hover:shadow-2xl transition-shadow "/>
+        <Avatar avatar_url={avatar.src}  component_class=" translate-y-1/2 absolute bottom-0 w-1/5 left-1 shadow-md rounded-full overflow-hidden hover:shadow-2xl transition-shadow "/>
     </div>
     
     <p class=" text-3xl antialiased font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary">[NenoSan]</p>
