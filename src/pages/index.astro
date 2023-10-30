@@ -16,8 +16,9 @@ const blogList = [];
 mdList.forEach((mdFile)=>{
    blogList.push({
       image_url: blog1.src,
-      title:'First blog',
-      href:mdFile.url
+      title:mdFile.frontmatter.title,
+      href:mdFile.url,
+      summary:mdFile.frontmatter.summary
    })
 })
 ---

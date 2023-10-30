@@ -1,5 +1,7 @@
 ---
 layout: '../../layouts/BlogBaseLayout.astro'
+title: 'Vue工程环境'
+summary: 'Vue工程中学习到的一些知识'
 ---
 # VueRouter的原理以及应用  
 ## 单页面和传统跳转的区别

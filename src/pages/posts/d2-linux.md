@@ -1,5 +1,7 @@
 ---
 layout: '../../layouts/BlogBaseLayout.astro'
+title: 'Linux简介'
+summary: '简要介绍了一下Linux的基本知识'
 ---
 # 01操作系统启动流程
 Power Up->BIOS->BIOS自检->BootLoader->OS  
