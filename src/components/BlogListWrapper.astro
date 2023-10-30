@@ -4,6 +4,4 @@ interface Props {
     mdList
 }
 ---
-<div>
-    <BlogList BlogList={Astro.props.mdList} client:load></BlogList>
-</div>
+<BlogList BlogList={Astro.props.mdList} client:only></BlogList>

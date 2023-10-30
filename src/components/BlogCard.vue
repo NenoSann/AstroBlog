@@ -1,13 +1,13 @@
 <template>
     <a :href="href" class=" block w-full">
-        <div class="flex bg-[rgba(255,255,255,0.4)] rounded-md overflow-hidden h-full w-full relative shadow-lg
+        <div class="flex bg-[rgba(255,255,255,0.4)] rounded-md h-[20rem] w-full relative shadow-lg
                     before:bg-accent" id="main">
-            <div class="flex-grow-0 max-w-[50%] min-w-fit">
-                <img :src="image_url" alt="" class="h-full min-w-fit">
+            <div class="flex-grow-0 min-w-fit h-[20rem]">
+                <img :src="image_url" alt="" class="h-[20rem] w-auto ">
             </div>
             <div class="h-full flex flex-col items-center p-4 flex-grow">
                 <h3>{{ title }}</h3>
-                <p class="w-[calc(100%)] text-md text-ellipsis overflow-auto">{{ summary }}</p>
+                <p class="text-md text-ellipsis overflow-auto">{{ summary }}</p>
             </div>
         </div>
     </a>

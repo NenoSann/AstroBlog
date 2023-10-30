@@ -4,6 +4,7 @@ import Info from "../components/Info.astro";
 import NavBar from "../components/NavBar.astro";
 import blog1 from '../assets/blog1.png';
 import BlogListWrapper from "../components/BlogListWrapper.astro";
+import BlogList from "../layouts/BlogList.vue";
 
 const mdList = await Astro.glob('../pages/posts/*.md');
 // looks like: /posts/VueProjectNote /posts/d2-linux /posts/d5-environment /posts/post_1
@@ -28,7 +29,7 @@ mdList.forEach((mdFile)=>{
       <div class=" overflow-hidden rounded-lg">
           <NavBar></NavBar>
         <div class="mx-10 flex flex-row mt-[20px] overflow-auto portrait:flex-col-reverse">
-          <BlogListWrapper mdList={blogList}></BlogListWrapper>
+          <BlogList BlogList={blogList} client:load></BlogList>
           <Info ></Info>
         </div>
       </div>
@@ -41,8 +42,4 @@ body html {
   height: 100%;
 }
 
-/* hide the ugly scrollbar, scrw you!!! */
-/* ::-webkit-scrollbar {
-  display: none;
-} */
 </style>
