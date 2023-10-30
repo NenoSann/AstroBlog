@@ -1,0 +1,10 @@
+---
+import BlogList from "../layouts/BlogList.vue";
+interface Props {
+    mdList
+}
+const {mdList} = Astro.props.mdList;
+---
+<div>
+    <BlogList BlogList={Astro.props.mdList} client:load></BlogList>
+</div>

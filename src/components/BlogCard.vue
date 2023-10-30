@@ -2,12 +2,12 @@
     <a :href="href" class=" block w-full">
         <div class="flex bg-[rgba(255,255,255,0.4)] rounded-md overflow-hidden h-full w-full relative shadow-lg
                     before:bg-accent" id="main">
-            <div class="flex-grow-0 min-w-fit">
+            <div class="flex-grow-0 max-w-[1/2] min-w-fit">
                 <img :src="image_url" alt="" class="h-full min-w-fit">
             </div>
-            <div class="flex flex-col items-center p-4 flex-grow">
+            <div class="h-full flex flex-col items-center p-4 flex-grow">
                 <h2>{{ title }}</h2>
-                <p class="w-full text-lg">{{ summary }}</p>
+                <p class="w-[calc(100%)] text-lg text-ellipsis overflow-scroll">{{ summary }}</p>
             </div>
         </div>
     </a>

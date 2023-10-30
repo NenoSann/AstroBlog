@@ -1,10 +1,9 @@
 ---
 import RootPage from "../layouts/RootPage.astro";
 import Info from "../components/Info.astro";
-import BlogList from "../layouts/BlogList.vue";
 import NavBar from "../components/NavBar.astro";
 import blog1 from '../assets/blog1.png';
-import blog2 from '../assets/blog2.png';
+import BlogListWrapper from "../components/BlogListWrapper.astro";
 
 const mdList = await Astro.glob('../pages/posts/*.md');
 // looks like: /posts/VueProjectNote /posts/d2-linux /posts/d5-environment /posts/post_1
@@ -23,13 +22,13 @@ mdList.forEach((mdFile)=>{
 })
 ---
 
-<RootPage title="Welcome to Astro.">
+<RootPage title="NenoSann's Blog">
   <div class=" mt-4 mx-10 min-h-screen max-h-screen w-100vw">
     <div class=" flex flex-col ">
       <div class=" overflow-hidden rounded-lg">
           <NavBar></NavBar>
         <div class=" flex flex-row mt-[20px] h-[calc(100vh-4rem-20px)] overflow-auto">
-          <BlogList BlogList={blogList} client:load></BlogList>
+          <BlogListWrapper mdList={blogList}></BlogListWrapper>
           <Info ></Info>
         </div>
       </div>

@@ -1,5 +1,5 @@
 <template>
-    <div class=" flex gap-6 justify-center items-center">
+    <div class=" w-full flex  justify-evenly items-center">
         <div v-for="icon in IconArray" class=" w-8">
             <a :href="icon.ref">
                 <img :src="icon.src">
