@@ -46,6 +46,7 @@ const props = defineProps({
 }
 
 #main::before {
+    @apply rounded-md;
     content: '';
     display: block;
     position: absolute;

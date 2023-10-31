@@ -1,0 +1,16 @@
+---
+import Info from "./Info.astro";
+import GithubHeatmap from "./GithubHeatmap.astro";
+---
+<div class="wrapper">
+    <Info></Info>
+    <GithubHeatmap></GithubHeatmap>
+</div>
+
+<style>
+    .wrapper {
+        @apply w-1/4;
+        @apply ml-[20px];
+        @apply flex flex-col;
+    }
+</style>
