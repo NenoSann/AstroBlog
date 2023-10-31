@@ -2,39 +2,10 @@
 import '@svgdotjs/svg.js';
 // const response = await fetch('https://ghchart.rshah.org/NenoSann');
 // const github_graph = response.body;
-const response = await fetch('https://api.github.com/graphql',{
-    method:'POST',
-    headers: {'Content-Type':'application/json','Authorization':'Bearer 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'},
-    body: JSON.stringify({
-        query:`query($userName: String!, $startDate: DateTime!, $endDate: DateTime!) {
-  user(login: $userName) {
-    contributionsCollection(from: $startDate, to: $endDate) {
-      contributionCalendar {
-        totalContributions
-        weeks {
-          contributionDays {
-            contributionCount
-            date
-          }
-        }
-      }
-    }
-  }
-}`,
-    variables:{
-    "userName": "NenoSann",
-    "startDate": "2023-09-01T00:00:00Z",
-    "endDate": "2023-09-30T23:59:59Z"
-}
-    })
-});
-const json = await response.json();
-console.log(json.data.user.contributionsCollection);
-const total = `${json.data.user.contributionsCollection.contributionCalendar.totalContributions} total contributions this month.`
+// https://github-contributions-api.deno.dev/NenoSann.json?from=2023-09-01T00:00:00Z&to=2023-09-30T23:59:59Z
 ---
 <div id="container">
     <!-- {github_graph} -->
-    <p>{total}</p>
     <div id="heat-map" class="heat-map"></div>
     <div id="heat-map-1" class="heat-map"></div>
     <div id="heat-map-2" class="heat-map"></div>
