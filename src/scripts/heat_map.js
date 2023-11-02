@@ -1,32 +1,3 @@
----
-// using third party api to query github contribution, if api failed we can switch to github graphQL api
-// remenber to store the secret key in .env
-// https://github-contributions-api.deno.dev/{UserName}
----
-<div id="container">
-    <!-- {github_graph} -->
-    <div id="heat-map" class="heat-map"></div>
-    <div id="heat-map-1" class="heat-map"></div>
-    <div id="heat-map-2" class="heat-map"></div>
-</div>
-
-<style>
-    #container {
-        @apply w-full;
-        @apply flex flex-col items-center justify-center gap-4;
-        @apply mx-auto py-[20px];
-        @apply bg-[rgba(255,255,255,0.4)] rounded-lg shadow-lg;
-        @apply portrait:w-full
-    }
-
-    .heat-map {
-        @apply grid grid-cols-11 grid-rows-3 gap-1;
-        @apply w-[205px];
-        @apply h-[53px];
-    }
-</style>
-
-<script>
 import { SVG, extend as SVGextend, Element as SVGElement, Rect } from '@svgdotjs/svg.js';
 const baseURL = 'https://github-contributions-api.deno.dev/NenoSann.json';
 // I don't konw what the hell this is, but seems like the monthes and days are correct
@@ -87,4 +58,3 @@ for (let i = 0; i < 30; i++) {
     let newSVG = SVG().size('15px', '15px').addTo('#heat-map-2');
     newSVG.rect('15px', '15px').attr({ fill: arr3[i] ? arr3[i] : '#ebedf0', rx: '2px' });
 }
-</script>
