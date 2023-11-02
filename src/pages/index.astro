@@ -27,7 +27,7 @@ mdList.forEach((mdFile)=>{
     <div class=" flex flex-col ">
       <div class=" overflow-hidden rounded-lg">
           <NavBar></NavBar>
-        <div class="mx-10 flex flex-row mt-[20px] overflow-auto overflow-x-hidden portrait:flex-col-reverse">
+        <div class="mx-10 mt-[calc(4rem+20px)] flex flex-row  overflow-auto overflow-x-hidden portrait:flex-col-reverse">
           <BlogList BlogList={blogList} client:load></BlogList>
           <InfoWrapper></InfoWrapper>
           <!-- <Info ></Info> -->

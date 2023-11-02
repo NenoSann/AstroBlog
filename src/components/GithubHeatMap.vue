@@ -1,15 +1,21 @@
 <template>
     <div id="container" class="bg-[rgba(255,255,255,0.4)]">
         <Transition>
-            <div class="bg-[rgba(255,255,255)] absolute w-full h-full z-10 flex items-center justify-center" v-if="loading">
+            <div class="bg-[rgba(255,255,255)] absolute w-full h-full z-10 flex items-center justify-center rounded-md"
+                v-if="loading">
                 <span class="daisy-loading daisy-loading-ring w-40 bg-accent"></span>
             </div>
         </Transition>
         <div class="flex flex-col gap-2">
-            <div class="daisy-stat">
-                <div class="daisy-stat-title">Total Contributions</div>
-                <div class="daisy-stat-value">{{ total }}</div>
-                <div class="daisy-stat-desc">21% more than last month</div>
+            <div class="daisy-stats  bg-[rgba(255,255,255,0.4)] ">
+                <div class="daisy-stat">
+                    <div class="daisy-stat-title">总贡献</div>
+                    <div class="daisy-stat-value text-primary">{{ total }}</div>
+                </div>
+                <div class="daisy-stat bg-[rgba(255,255,255,0.4)]">
+                    <div class="daisy-stat-title">月贡献</div>
+                    <div class="daisy-stat-value text-secondary">{{ monthTotal }}</div>
+                </div>
             </div>
             <div id="heat-map" class="heat-map"></div>
             <div id="heat-map-1" class="heat-map"></div>
@@ -23,7 +29,7 @@ import { ref, onMounted, Transition } from 'vue';
 import { SVG, extend as SVGextend, Element as SVGElement, Rect } from '@svgdotjs/svg.js';
 const loading = ref(true);
 const total = ref(0);
-
+const monthTotal = ref(0);
 onMounted(async () => {
     const baseURL = 'https://github-contributions-api.deno.dev/NenoSann.json';
     // I don't konw what the hell this is, but seems like the monthes and days are correct
@@ -59,6 +65,7 @@ onMounted(async () => {
     let arr2 = [];
     let arr3 = [];
     total.value = currentMonthData.totalContributions + previousMonth1Data.totalContributions + previousMonth2Data.totalContributions;
+    monthTotal.value = currentMonthData.totalContributions;
     arr = currentMonthData.contributions.map((day) => {
         return { 'color': day.color, 'counts': day.contributionCount, 'date': day.date };
     })
