@@ -4,7 +4,6 @@
 // https://github-contributions-api.deno.dev/{UserName}
 ---
 <div id="container">
-    <!-- {github_graph} -->
     <div id="heat-map" class="heat-map"></div>
     <div id="heat-map-1" class="heat-map"></div>
     <div id="heat-map-2" class="heat-map"></div>
@@ -16,7 +15,7 @@
         @apply flex flex-col items-center justify-center gap-4;
         @apply mx-auto py-[20px];
         @apply bg-[rgba(255,255,255,0.4)] rounded-lg shadow-lg;
-        @apply portrait:w-full
+        @apply portrait:w-full;
     }
 
     .heat-map {
@@ -65,26 +64,30 @@ let arr2 = [];
 let arr3 = [];
 
 arr = currentMonthData.contributions.map((day) => {
-    return day.color;
+    return {'color':day.color,'counts':day.contributionCount,'date':day.date};
 })
 arr2 = previousMonth1Data.contributions.map((day) => {
-    return day.color;
+    return {'color':day.color,'counts':day.contributionCount,'date':day.date};
 })
 arr3 = previousMonth2Data.contributions.map((day) => {
-    return day.color;
+    return {'color':day.color,'counts':day.contributionCount,'date':day.date};
 })
-// import { SVG, extend as SVGexted, Element as SVGElement,Rect } from '../../node_modules/@svgdotjs/svg.js/dist/svg.esm.js';
 
-for (let i = 0; i < 30; i++) {
-    let newSVG = SVG().size('15px', '15px').addTo('#heat-map');
-    newSVG.rect('15px', '15px').attr({ fill: arr[i] ? arr[i] : '#ebedf0', rx: '2px' });
-}
-for (let i = 0; i < 30; i++) {
-    let newSVG = SVG().size('15px', '15px').addTo('#heat-map-1');
-    newSVG.rect('15px', '15px').attr({ fill: arr2[i] ? arr2[i] : '#ebedf0', rx: '2px' });
-}
-for (let i = 0; i < 30; i++) {
-    let newSVG = SVG().size('15px', '15px').addTo('#heat-map-2');
-    newSVG.rect('15px', '15px').attr({ fill: arr3[i] ? arr3[i] : '#ebedf0', rx: '2px' });
-}
+const heatmaps = document.querySelectorAll('.heat-map');
+const data_arr = [arr,arr2,arr3];
+const days = [currentMonthDays,preViousMonth1Days,preViousMonth2Days];
+    for (let index = 0; index < data_arr.length; index++) {
+        for(let day = 0;day<days[index];day++){
+            // create a new daisy-tooltip, and it contains a svg for github contributions
+            const tooltip = document.createElement('div');
+            tooltip.classList.add('daisy-tooltip'); // add daisy-ui tooltip class for the div, see:https://daisyui.com/components/tooltip/
+            tooltip.setAttribute('data-tip',`${data_arr[index][day] ? `${data_arr[index][day].counts ===0 ? `${data_arr[index][day].date}没有contribution😳😳😳`:`${data_arr[index][day].date}有${data_arr[index][day]?.counts}个contribution! 🥳🥳🥳`}` :
+                                            `这天还没到呢😅😅😅`}`) // set the tooltips message
+            const newSVG = SVG().size('15px', '15px');
+            newSVG.rect('15px', '15px').attr({ fill: data_arr[index][day] ? data_arr[index][day].color : '#ebedf0', rx: '2px' });
+            tooltip.appendChild(newSVG.node); // append svg to tooltip
+            heatmaps[index].appendChild(tooltip); // append tooltip to heatmaps
+        }
+    }
+
 </script>
