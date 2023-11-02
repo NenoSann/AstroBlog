@@ -19,7 +19,6 @@ const props = defineProps({
 
 <style>
 .blog-list {
-    @apply mb-4;
     @apply grid grid-cols-1 gap-4;
     @apply sm:grid-cols-2 2xl:grid-cols-3;
     @apply w-3/4 portrait:w-full;

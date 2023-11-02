@@ -15,8 +15,9 @@ import '@svgdotjs/svg.js';
     #container {
         @apply w-full;
         @apply flex flex-col items-center justify-center gap-4;
-        @apply mx-auto mt-[20px] py-[20px];
+        @apply mx-auto py-[20px];
         @apply bg-[rgba(255,255,255,0.4)] rounded-lg shadow-lg;
+        @apply portrait:w-full
     }
 
     .heat-map {
@@ -26,7 +27,7 @@ import '@svgdotjs/svg.js';
     }
 </style>
 
-<script type="module">
+<script>
 const baseURL = 'https://github-contributions-api.deno.dev/NenoSann.json';
 // I don't konw what the hell this is, but seems like the monthes and days are correct
 const currentDate = new Date();
@@ -72,17 +73,17 @@ arr2 = previousMonth1Data.contributions.map((day)=>{
 arr3 = previousMonth2Data.contributions.map((day)=>{
     return day.color;
 })
-    import { SVG, extend as SVGexted, Element as SVGElement,Rect } from '../../node_modules/@svgdotjs/svg.js/dist/svg.esm.js';
-    // import { SVG, extend as SVGextend, Element as SVGElement,Rect } from '@svgdotjs/svg.js';
-    for(let i = 0;i<30;i++){    
+    // import { SVG, extend as SVGexted, Element as SVGElement,Rect } from '../../node_modules/@svgdotjs/svg.js/dist/svg.esm.js';
+    import { SVG, extend as SVGextend, Element as SVGElement,Rect } from '@svgdotjs/svg.js';
+    for(let i = 0;i<currentMonthDays;i++){    
         let newSVG = SVG().size('15px','15px').addTo('#heat-map');
-        newSVG.rect('15px','15px').attr({fill:arr[i]?arr[i]:'#ebedf0',rx:'2px'});
+        newSVG.rect('15px','15px').attr({fill:arr[i]?arr[i]:'#ebedf0',rx:'2px'});    
     }
-    for(let i = 0;i<30;i++){    
+    for(let i = 0;i<preViousMonth1Days;i++){    
         let newSVG = SVG().size('15px','15px').addTo('#heat-map-1');
         newSVG.rect('15px','15px').attr({fill:arr2[i]?arr2[i]:'#ebedf0',rx:'2px'});
     }
-    for(let i = 0;i<30;i++){    
+    for(let i = 0;i<preViousMonth2Days;i++){    
         let newSVG = SVG().size('15px','15px').addTo('#heat-map-2');
         newSVG.rect('15px','15px').attr({fill:arr3[i]?arr3[i]:'#ebedf0',rx:'2px'});
     }
