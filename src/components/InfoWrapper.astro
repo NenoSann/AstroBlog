@@ -1,10 +1,11 @@
 ---
 import Info from "./Info.astro";
-import GithubHeatmap from "./GithubHeatmap.astro";
+// import GithubHeatmap from "./GithubHeatmap.astro";
+import GithubHeatMap from "./GithubHeatMap.vue";
 ---
 <div class="wrapper">
     <Info></Info>
-    <GithubHeatmap></GithubHeatmap>
+    <GithubHeatMap client:only="vue"></GithubHeatMap>
 </div>
 
 <style>

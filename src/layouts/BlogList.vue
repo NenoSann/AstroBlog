@@ -7,6 +7,7 @@
 
 <script setup>
 import BlogCard from '../components/BlogCard.vue';
+import { onMounted } from 'vue';
 const props = defineProps({
     BlogList: {
         type: Array,
@@ -14,7 +15,6 @@ const props = defineProps({
         default: []
     }
 })
-
 </script>
 
 <style>

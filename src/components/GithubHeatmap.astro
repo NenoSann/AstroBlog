@@ -1,9 +1,11 @@
 ---
+import GhStats from "./GhStats.astro";
 // using third party api to query github contribution, if api failed we can switch to github graphQL api
 // remenber to store the secret key in .env
 // https://github-contributions-api.deno.dev/{UserName}
 ---
 <div id="container">
+    <GhStats></GhStats> 
     <div id="heat-map" class="heat-map"></div>
     <div id="heat-map-1" class="heat-map"></div>
     <div id="heat-map-2" class="heat-map"></div>
