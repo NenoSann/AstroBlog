@@ -2,7 +2,7 @@
 import DropdownList from "./DropdownList.vue";
 const list = [{name:'light',color:['#570DF8','#F000B8','#1DCDBC','#54667D']},
               {name:'cupcake',color:['#65c3c8','#ef9fbc','	#eeaf3a','#2b3440']},
-              {name:'synthwave'},
+              {name:'synthwave',},
               {name:'dracula'}
             ];
 export {list}
@@ -12,13 +12,11 @@ export {list}
         <div class="daisy-drawer">
             <input id="my-drawer" type="checkbox" class="daisy-drawer-toggle" />
             <div class="daisy-drawer-content">
-              <!-- Page content here -->
               <label for="my-drawer" class="daisy-btn daisy-btn-square daisy-btn-ghost daisy-btn-primary daisy-drawer-button"><svg  xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 24 24" class="inline-block w-8 h-8 stroke-current"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg></label>
             </div> 
-            <div class="daisy-drawer-side">
+            <div class="daisy-drawer-side z-50">
               <label for="my-drawer" aria-label="close sidebar" class="daisy-drawer-overlay"></label>
               <ul class="daisy-menu p-4 w-80 min-h-full bg-base-200 text-base-content">
-                <!-- Sidebar content here -->
                 <li><a>Sidebar Item 1</a></li>
                 <li><a>Sidebar Item 2</a></li>
                 
