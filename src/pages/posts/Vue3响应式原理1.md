@@ -1,6 +1,6 @@
 ---
 layout: '../../layouts/BlogBaseLayout.astro'
-title: 'Vue3响应式原理'
+title: 'Vue3响应式原理1'
 ---
 
 # 什么是响应式系统？如何实现一个响应式系统？
@@ -30,18 +30,18 @@ title: 'Vue3响应式原理'
     }
     effect();
 ```
-这样我们就创建了一个一次性的数据流，将data和app绑定在了一起。但是，当我们更改了data时，app的数据并不会神奇地一起更改。你需要在更新data的同时更改app。  
+这样我们就创建了一个一次性的数据流，将data和app绑定在了一起。但是，当我们更改了`data`时，`app`的数据并不会神奇地一起更改。你需要在更新`data`的同时更改`app`。  
 
 ```javascript
     data.count = 2;
     // you need to re-call this, or app will not change
     effect();
 ```
-我们希望做到当data更新的时候，副作用函数effect也能够自动地重新执行，不需要我们手动执行，来创建一个持续的数据流，这就是响应式数据。
+我们希望做到当`data`更新的时候，副作用函数`effect`也能够自动地重新执行，不需要我们手动执行，来创建一个持续的数据流，这就是响应式数据。
 
 ## 实现一个(简单/简陋)响应式系统
 让我们想想在整个数据变化过程中发生了什么。
-- 副作用函数effect执行的时候，会触发data.count的读取
+- 副作用函数`effect`执行的时候，会触发`data.count`的读取
 - 修改data.count的时候，会触发data.count的设置
 
 如果我们可以拦截一个对象的读取和设置，并且将副作用函数储存起来，我们就可以做到对象发生改变的时候“通知”副作用函数重新执行。在ES6之前，我们只能使用Object.defineProperty函数实现，这也是Vue2所使用的方法。在ES6后，我们可以使用代理对象Proxy来实现。
