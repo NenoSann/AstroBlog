@@ -44,3 +44,30 @@ const obj = new Proxy(data, {
     }
 });
 ```
+这样，我们就从单纯的代理一个对象转换到代理对象的字段，实现了更加精细的控制和更好的性能。
+现在，我们将跟踪副作用函数的逻辑直接存放到了代理内的get函数内，更好的做法是将这段逻辑重新封装到一个track函数中，同理的还有触发的逻辑。
+```javascript
+    function track(target,key) {
+        if(!activeEffect) return
+        let depsMap = bucket.get(target);
+        if(!depsMap) {
+            bucket.set(target,(depsMap = new Map()));
+        }
+        let deps = depsMap.get(key);
+        if(!deps) {
+            depsMap.set(key,(deps = new Set()))l
+        }
+        deps.add(activeEffect);
+    }
+
+    function trigger(target,key) {
+        const depsMap = bucket.get(target,key);
+        if(!depsMap) return;
+        const effect = depsMap.get(key);
+        effect && effect.forEach((fn)=>fn());
+    }
+```
+
+## 为什么使用WeakMap而不是Map？
+如果你知道javascript内还有一个数据结构叫做Map的话你可能会产生疑问：为什么我们需要使用WeakMap而不是Map呢？这是一个好问题，WeakMap和Map都可以实现KV映射，但是WeakMap的引用是弱引用，而Map的引用是强引用。弱引用意味着WeakMap内的Key不会影响内存回收器的判断，其中储存的Obj可以被内存回收器正常回收而不会引发内溢出问题。因此，在这种情况下WeakMap是更好的选择。
+
